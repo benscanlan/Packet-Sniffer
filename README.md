@@ -10,7 +10,7 @@ This is a program to categorize and print select information about packets. The 
 If you receive a packet with a protocol not specified above, then the multiplexing key (type or protocol value) is printed. If you receive an IP packet where TCP or UDP is not the encapsulated protocol, then just the protocol value is printed.
   * When printing addresses, the OS does the work for you. It uses the functions inet_ntop(3) and ether_ntoa(3).
 The program uses the pcap(3) library, which collects packets and provides them to you as an array of bytes. You have two sources for your packets: a saved capture file or a live capture of traffic off the network.
-## Use
+## How to use
 If you provide a filename as a command line argument, then the capture file is used. If you do not use a command line argument, then a live capture is used. You will need to run the program with root privileges to capture live packets. You may use Wireshark to capture traces (save the packets in pcap format) to use as test input to your program or you may download example traces from http://wiki.wireshark.org/SampleCaptures. When working with traces, ensure they include the full Ethernet header (no not capture on the any interface).
 It links against the libpcap library (-lpcap) to build the executable.
 There are many sources for the packet formats used in this program, but the authoritative sources are: IEEE 802.3 standard for Ethernet, RFC 791 for IPv4, RFC 2460 for IPv6, RFC 793 for TCP, and RFC 768 for UDP.
@@ -40,6 +40,7 @@ To perform a live capture, follow these steps:
 
 ## Input/Output
 Below are input and output examples the program, where each line consists of source -> destination. The program has the formatting of the examples below:
+
     $packets trace.cap
     Processing file ’trace.pcap’
     0:1f:33:cf:2d:c4 -> 8c:a9:82:62:63:6c
@@ -64,5 +65,6 @@ Below are input and output examples the program, where each line consists of sou
     0:1f:33:cf:2d:c4 -> 8c:a9:82:62:63:6c
         [IPv4] 10.0.0.2 -> 71.139.247.68
         [TCP] 8334 -> 80
+
 ## Extras
 * The functions ntohl(3), ntohs(3), and memcpy(3) are used.
