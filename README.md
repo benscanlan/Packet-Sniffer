@@ -1,4 +1,4 @@
-# Packet Sniffer 
+# Packet Sniffer
 This program does the following:
 * Utilize the pcap library to process raw network packets
 * Categorize and print information about packets in a trace file or from a live capture
@@ -8,7 +8,7 @@ This is a program to categorize and print select information about packets. The 
 * The source and destination ports for UDP and TCP.
 * If the packet is TCP, then indicate when SYN or FIN flags are set.
 If you receive a packet with a protocol not specified above, then the multiplexing key (type or protocol value) is printed. If you receive an IP packet where TCP or UDP is not the encapsulated protocol, then just the protocol value is printed.
-  * When printing addresses, the OS does the work for you. It uses the functions inet_ntop(3) and ether_ntoa(3).
+* When printing addresses, the OS does the work for you. It uses the functions inet_ntop(3) and ether_ntoa(3).
 The program uses the pcap(3) library, which collects packets and provides them to you as an array of bytes. You have two sources for your packets: a saved capture file or a live capture of traffic off the network.
 ## How to use
 If you provide a filename as a command line argument, then the capture file is used. If you do not use a command line argument, then a live capture is used. You will need to run the program with root privileges to capture live packets. You may use Wireshark to capture traces (save the packets in pcap format) to use as test input to your program or you may download example traces from http://wiki.wireshark.org/SampleCaptures. When working with traces, ensure they include the full Ethernet header (no not capture on the any interface).
