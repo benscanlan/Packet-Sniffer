@@ -36,3 +36,33 @@ To perform a live capture, follow these steps:
 * Print IPv6 information (source and destination address)
 * Print UDP information (source and destination port)
 * Print TCP information (source and destination port and flags)
+
+
+## Input/Output
+Below are input and output examples the program, where each line consists of source -> destination. The program has the formatting of the examples below:
+    $packets trace.cap
+    Processing file ’trace.pcap’
+    0:1f:33:cf:2d:c4 -> 8c:a9:82:62:63:6c
+        [IPv4] 10.0.0.2 -> 71.139.247.68
+        [TCP] 8334 -> 80 SYN
+    8c:a9:82:62:63:6c -> 0:1f:33:cf:2d:c4
+        [IPv4] 71.139.247.68 -> 10.0.0.2
+        [TCP] 80 -> 8334 FIN
+    8c:a9:82:62:63:6c -> 0:1f:33:cf:2d:c4
+        [38]
+    0:1f:33:cf:2d:c4 -> 8c:a9:82:62:63:6c
+        [IPv4] 10.0.0.2 -> 71.139.247.68
+        [101]
+    70:1a:4:ac:ef:b2 -> 33:33:0:0:0:c
+        [IPv6] fe80::e171:e8c6:cbe4:ac15 -> ff02::c
+        [UDP] 3455 -> 10456
+    33:33:0:0:0:c -> 70:1a:4:ac:ef:b2
+        [IPv6] ff02::c -> fe80::e171:e8c6:cbe4:ac15
+        [123]
+    #packets
+    Capturing on interface ’eth0’
+    0:1f:33:cf:2d:c4 -> 8c:a9:82:62:63:6c
+        [IPv4] 10.0.0.2 -> 71.139.247.68
+        [TCP] 8334 -> 80
+## Extras
+* The functions ntohl(3), ntohs(3), and memcpy(3) are used.
