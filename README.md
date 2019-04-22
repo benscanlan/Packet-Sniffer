@@ -1,4 +1,4 @@
-# Packet Processing
+# Packet Sniffer 
 This program does the following:
 * Utilize the pcap library to process raw network packets
 * Categorize and print information about packets in a trace file or from a live capture
